@@ -3,7 +3,7 @@ using SimpleTwitterAnalyzer
 
 makedocs(
     sitename = "SimpleTwitterAnalyzer",
-    format = :html,
+    format = Documenter.HTML(),
     modules = [SimpleTwitterAnalyzer],
     makedoc = true
 )
