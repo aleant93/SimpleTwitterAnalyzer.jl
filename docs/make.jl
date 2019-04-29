@@ -4,8 +4,7 @@ using SimpleTwitterAnalyzer
 makedocs(
     sitename = "SimpleTwitterAnalyzer",
     format = Documenter.HTML(),
-    modules = [SimpleTwitterAnalyzer],
-    makedoc = true
+    modules = [SimpleTwitterAnalyzer]
 )
 
 # Documenter can also automatically deploy documentation to gh-pages.
