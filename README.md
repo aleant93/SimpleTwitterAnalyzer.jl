@@ -1,1 +1,1 @@
-# SimpleTwitterAnalyzer
+# SimpleTwitterAnalyzer.jl
