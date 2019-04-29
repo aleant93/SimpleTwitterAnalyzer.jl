@@ -4,7 +4,8 @@ using SimpleTwitterAnalyzer
 makedocs(
     sitename = "SimpleTwitterAnalyzer",
     format = :html,
-    modules = [SimpleTwitterAnalyzer]
+    modules = [SimpleTwitterAnalyzer],
+    makedoc = true
 )
 
 # Documenter can also automatically deploy documentation to gh-pages.
@@ -13,3 +14,7 @@ makedocs(
 #=deploydocs(
     repo = "<repository url>"
 )=#
+deploydocs(
+    repo = "github.com/aleant93/SimpleTwitterAnalyzer.jl.git",
+    target = "build"
+)
