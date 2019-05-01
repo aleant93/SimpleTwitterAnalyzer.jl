@@ -5,15 +5,13 @@ function load_tweets(path::AbstractString, lines::Int = typemax(Int))
     io = open(path, "r")
 
     while counter < lines && !eof(io)
-        line = readline(io)
-        json_line = JSON.parse(line)
-
-        push!(data, json_line)
-
+        tweet = JSON.parse(readline(io))
+        push!(data, tweet)
         counter += 1
     end
 
     #reduce(vcat, DataFrame.(data)) -> uniform columns
-    vcat(DataFrame.(data)..., cols=:union)
+    vcat(DataFrame.(data)..., cols=:union) #non uniform columns
 
+    #can we use append instead of vcat? Performance tips
 end
