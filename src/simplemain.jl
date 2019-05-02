@@ -1,10 +1,12 @@
 using SimpleTwitterAnalyzer
 
-path = "./data/tweets.txt"
+path = "./data/3rd_ep_gotstreaming2.txt"
 
 df = load_tweets(path, 10)
 
-# langdf = cntoccurences(df, :lang)
+langdf = cntoccurences(df, :lang)
+plotdata(langdf, :lang, :cnt, "Lang distribution")
+
 # sourcedf = cntoccurences(df, :source)
 #
 # println(langdf)
@@ -14,3 +16,8 @@ df = load_tweets(path, 10)
 # println(hashtag_df)
 # println(mentions_df)
 # println(domains_df)
+
+# w, h = activityfrequency(df)
+#
+# println(w)
+# println(h)

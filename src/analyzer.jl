@@ -66,15 +66,29 @@ end
 """
 
 """
-function activityfrequency(df)
+function activityfrequency(df::AbstractDataFrame)
     activity_weekly = Dict{Int, Int}(i => 0 for i = 1:7)
     activity_hourly = Dict{Int, Int}(i => 0 for i = 0:23)
     #mindate, maxdate
 
-    map(r -> collectdatedata(r, activity_weekly, activity_hourly), eachrow(df))
+    map(r -> collecttiming!(r.created_at, activity_weekly, activity_hourly), eachrow(df))
     #mydate = Dates.parse(DateTime, df.created_at[1], dateformat"e u d H:M:S +s Y")
+
+    # println(activity_weekly)
+    # println(activity_hourly)
+
+    weekly_df = DataFrame(:weekday => collect((keys(activity_weekly))), :cnt => collect(values(activity_weekly)))
+    hourly_df = DataFrame(:hour => collect((keys(activity_hourly))), :cnt => collect(values(activity_hourly)))
+
+    weekly_df, hourly_df
 end
 
-function collectdatedata()
+"""
 
+"""
+function collecttiming!(date::AbstractString, activity_weekly::AbstractDict, activity_hourly::AbstractDict)
+    tweetdate = Dates.parse(DateTime, date, dateformat"e u d H:M:S +s Y")
+
+    activity_weekly[Dates.dayofweek(tweetdate)] = activity_weekly[Dates.dayofweek(tweetdate)] + 1
+    activity_hourly[Dates.hour(tweetdate)] = activity_hourly[Dates.hour(tweetdate)] + 1
 end
