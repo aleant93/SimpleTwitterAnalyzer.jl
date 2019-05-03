@@ -4,8 +4,10 @@ path = "./data/3rd_ep_gotstreaming2.txt"
 
 df = load_tweets(path, 10)
 
-langdf = cntoccurences(df, :lang)
-plotdata(langdf, :lang, :cnt, "Lang distribution")
+placesdf = cntplaces(df)
+
+# langdf = cntoccurences(df, :lang)
+# plotdata(langdf, :lang, :cnt, "Lang distribution")
 
 # sourcedf = cntoccurences(df, :source)
 #
