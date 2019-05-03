@@ -8,7 +8,6 @@ addons:
   apt:
     packages:
       - python3-matplotlib
-    update: true
 
 notifications:
   email: false
