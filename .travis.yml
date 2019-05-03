@@ -4,10 +4,16 @@ os:
   - linux
 julia:
   - 1.0
+addons:
+  apt:
+    packages:
+      - "python3-pip"
 before_install:
   - pip3 install matplotlib
+
 notifications:
   email: false
+
 after_success:
   - julia -e 'using Pkg; cd(Pkg.dir("SimpleTwitterAnalyzer")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())';
 
