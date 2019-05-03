@@ -7,14 +7,12 @@ julia:
 addons:
   apt:
     packages:
-      - "python3-pip"
+      - python3-pip
+      - python3-matplotlib
     update: true
 
 before_install:
   - sudo pip3 install --upgrade pip
-
-env:
-  - PYTHON = ""
 
 notifications:
   email: false
