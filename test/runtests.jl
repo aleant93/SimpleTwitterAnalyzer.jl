@@ -2,7 +2,7 @@ using Test, DataFrames
 using SimpleTwitterAnalyzer
 
 #setup code
-path = "data/test.json"
+path = "testdata/test.json"
 tweetsdf = load_tweets(path)
 
 # @testset "IO" begin
