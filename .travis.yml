@@ -4,6 +4,8 @@ os:
   - linux
 julia:
   - 1.0
+before_install:
+  - pip3 install matplotlib
 notifications:
   email: false
 after_success:
