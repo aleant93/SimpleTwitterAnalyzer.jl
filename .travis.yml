@@ -12,6 +12,7 @@ addons:
     update: true
 before_install:
   - sudo apt install --upgrade python3-pip
+  - which pip3
   - pip3 install matplotlib
 
 notifications:
