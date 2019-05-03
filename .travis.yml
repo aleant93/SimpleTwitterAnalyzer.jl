@@ -4,11 +4,8 @@ os:
   - linux
 julia:
   - 1.0
-addons:
-  apt:
-    packages:
-      - "python3-pip"
 before_install:
+  - sudo apt-get python3-pip
   - pip3 install matplotlib
 
 notifications:
