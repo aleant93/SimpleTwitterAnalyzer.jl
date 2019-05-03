@@ -4,6 +4,11 @@ os:
   - linux
 julia:
   - 1.0
+addons:
+  apt:
+    packages:
+      - "python3"
+      - "python3-pip"
 before_install:
   - sudo apt install python3-pip
   - pip3 install --upgrade pip
