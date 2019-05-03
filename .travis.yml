@@ -9,9 +9,9 @@ addons:
     packages:
       - "python3"
       - "python3-pip"
+    update: true
 before_install:
-  - sudo apt install python3-pip
-  - pip3 install --upgrade pip
+  - sudo apt install --upgrade python3-pip
   - pip3 install matplotlib
 
 notifications:
