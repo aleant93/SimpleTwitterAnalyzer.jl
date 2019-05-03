@@ -15,6 +15,6 @@ tweetsdf = load_tweets(path)
 	@test cntoccurences(tweetsdf, :lang) == testdf
 
 	#source distribution
-	testdf = DataFrame(:source => ["<a href="http://twitter.com/download/iphone" rel="nofollow">Twitter for iPhone</a>"])
-	@test_throws DomainError (-1)^0.5
+	#testdf = DataFrame(:source => ["<a href="http://twitter.com/download/iphone" rel="nofollow">Twitter for iPhone</a>"])
+	#@test_throws DomainError (-1)^0.5
 end;
