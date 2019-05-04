@@ -1,10 +1,10 @@
 using SimpleTwitterAnalyzer
 
-path = "./data/3rd_ep_gotstreaming2.txt"
+path = "./data/tweets.txt"
 
-df = load_tweets(path, 10)
+df = loadtweets(path, 10)
 
-placesdf = cntplaces(df)
+#placesdf = cntplaces(df)
 
 # langdf = cntoccurences(df, :lang)
 # plotdata(langdf, :lang, :cnt, "Lang distribution")

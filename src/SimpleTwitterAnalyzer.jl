@@ -6,7 +6,7 @@ using PyPlot
 using DataFrames
 using URIParser
 
-export load_tweets
+export loadtweets
 export cntoccurences, cntentities, activityfrequency, cntplaces
 export plotdata
 
