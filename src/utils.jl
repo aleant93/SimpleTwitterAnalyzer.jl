@@ -39,6 +39,10 @@ function plotstats(stats::AbstractDict, destpath::AbstractString)
                 x_ticks = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
             end
 
+            if colnames[1] == :hour
+                #x_ticks = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+            end
+
             plotdata(stats[feature], colnames[1], colnames[2];
                 ptitle=string(colnames[1], " distribution"),
                 x_label=string(colnames[1]),

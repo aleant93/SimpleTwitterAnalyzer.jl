@@ -1,4 +1,4 @@
-using Test
+using Test, BenchmarkTools
 using DataFrames, PyPlot
 using SimpleTwitterAnalyzer
 
@@ -68,10 +68,14 @@ tweets_df = loadtweets(path)
 	@test sort!(hourly_df, :cnt, rev=true).cnt == sort!(test_hourlydf, :cnt, rev=true).cnt
 end;
 
-@testset "Plots" begin
-	lang_df = cntoccurences(tweets_df, :lang)
-	plotdata(lang_df, :lang, :cnt; ptitle="Lang distribution", x_label="Languages")
-	destpath = mkpath(string(pwd(), Base.Filesystem.path_separator,
-		"testdata", Base.Filesystem.path_separator, "lang.png"))
-	savefig(destpath)
+# @testset "Plots" begin
+# 	lang_df = cntoccurences(tweets_df, :lang)
+# 	plotdata(lang_df, :lang, :cnt; ptitle="Lang distribution", x_label="Languages")
+# 	destpath = mkpath(string(pwd(), Base.Filesystem.path_separator,
+# 		"testdata", Base.Filesystem.path_separator, "lang.png"))
+# 	savefig(destpath)
+# end;
+
+@testset "utils" begin
+	@btime	stats = runallstats(tweets_df)
 end;
