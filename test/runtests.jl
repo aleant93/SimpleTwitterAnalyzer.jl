@@ -70,8 +70,8 @@ end;
 
 @testset "Plots" begin
 	lang_df = cntoccurences(tweets_df, :lang)
-	plotdata(lang_df, :lang, :cnt; ptitle="Lang distribution", xlabels="Languages")
-	destpath = string(pwd(), Base.Filesystem.path_separator,
-		"testdata", Base.Filesystem.path_separator, "lang.png")
+	plotdata(lang_df, :lang, :cnt; ptitle="Lang distribution", x_label="Languages")
+	destpath = mkpath(string(pwd(), Base.Filesystem.path_separator,
+		"testdata", Base.Filesystem.path_separator, "lang.png"))
 	savefig(destpath)
 end;

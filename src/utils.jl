@@ -34,7 +34,7 @@ function plotstats(stats::AbstractDict, destpath::AbstractString)
             destfile = string(output_path, string(Base.Filesystem.path_separator, String(feature),".png"))
             colnames = names(stats[feature])
             plotdata(stats[feature], colnames[1], colnames[2];
-                ptitle=string(colnames[1], " distribution"), xlabels=string(colnames[1]))
+                ptitle=string(colnames[1], " distribution"), x_label=string(colnames[1]))
             savefig(destfile)
         end
     end

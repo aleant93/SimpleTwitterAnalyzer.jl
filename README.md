@@ -32,5 +32,5 @@ This tool - based on the Python library [tweets_analyzer.py](https://github.com/
 ### TODOs
 - Adding other stats (number of retweets, etc)
 - Improving the plotting of some stats
-- Handle in a better way the source field
+- Handle in a nicer way the source field
 - Adding a crawling component able to download tweets directly from Twitter
