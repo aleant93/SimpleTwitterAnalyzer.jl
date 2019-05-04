@@ -24,7 +24,7 @@
 ## Description
 Need a quick Julia-based solution to analyze your tweet? This tool may be the answer your looking for!
 
-This tool - based on the Python library [tweets_analyzer.py](https://github.com/x0rz/tweets_analyzer/blob/master/tweets_analyzer.py) - allows you to:
+This tool - based on the Python library [tweets_analyzer.py](https://github.com/x0rz/tweets_analyzer) - allows you to:
 1. run some basic statistics on the tweets you provide, such as find the most used hashtags and the language distribution of your data set;
 2. save your stats in a csv format;
 3. plot and save your stats.
