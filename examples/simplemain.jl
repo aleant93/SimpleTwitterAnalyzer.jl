@@ -18,6 +18,6 @@ hourly_df = activities_df[:hourly_activity]
 
 #Plot and save something..
 destdir = "./results"
-p = plotdata(lang_df, :lang, :cnt; ptitle="Lang distribution", xlabels="Languages")
+plotdata(lang_df, :lang, :cnt; ptitle="Lang distribution", xlabels="Languages")
 destpath = string(destdir, string(Base.Filesystem.path_separator, "lang.png"))
 savefig(destpath)
