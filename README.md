@@ -21,7 +21,7 @@
 [codecov-img]: https://coveralls.io/repos/github/aleant93/SimpleTwitterAnalyzer.jl/badge.svg?branch=master&service=github
 [codecov-url]: https://coveralls.io/github/aleant93/SimpleTwitterAnalyzer.jl?branch=master
 
-##Description
+## Description
 Need a quick Julia-based solution to analyze your tweet? This tool may be the answer your looking for!
 
 This tool - based on the Python library [tweets_analyzer.py](https://github.com/x0rz/tweets_analyzer/blob/master/tweets_analyzer.py) - allows you to:
@@ -29,7 +29,7 @@ This tool - based on the Python library [tweets_analyzer.py](https://github.com/
 2. save your stats in a csv format;
 3. plot and save your stats.
 
-###TODOs
+### TODOs
 - Improving the plotting of some stats
 - Handle in a better way the source field
 - Adding a crawling component able to download tweets directly from Twitter
