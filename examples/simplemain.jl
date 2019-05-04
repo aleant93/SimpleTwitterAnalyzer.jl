@@ -12,8 +12,12 @@ hashtags_df = entities[:hashtags]
 mentions_df = entities[:mentions]
 domains_df = entities[:domains]
 
+activities_df = cntactivities(df)
+weekly_df = activities_df[:weekly_activity]
+hourly_df = activities_df[:hourly_activity]
+
 #Plot and save something..
 destdir = "./results"
-plotdata(lang_df, :lang, :cnt; ptitle="Lang distribution", xlabels="Languages")
+p = plotdata(lang_df, :lang, :cnt; ptitle="Lang distribution", xlabels="Languages")
 destpath = string(destdir, string(Base.Filesystem.path_separator, "lang.png"))
 savefig(destpath)

@@ -13,6 +13,7 @@ Analyzer
 ```@docs
 cntoccurences
 cntentities
+cntactivities
 ```
 
 I/O

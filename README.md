@@ -1,6 +1,6 @@
 # SimpleTwitterAnalyzer.jl
 
-*Some description here.*
+*A quick and simple Twitter analyzer Tool.*
 
 | **Documentation** | **Build Status** |
 |---------------|--------------|
@@ -8,7 +8,7 @@
 
 ## Documentation
 <!-- - [**STABLE**][docs-stable-url] &mdash; **documentation of the most recently tagged version.** -->
-- [**DEV**][docs-dev-url] &mdash; **documentation of the development version.** 
+- [**DEV**][docs-dev-url] &mdash; **documentation of the development version.**
 
 [docs-latest-img]: https://img.shields.io/badge/docs-latest-blue.svg
 [docs-stable-img]: https://img.shields.io/badge/docs-stable-blue.svg
@@ -21,3 +21,15 @@
 [codecov-img]: https://coveralls.io/repos/github/aleant93/SimpleTwitterAnalyzer.jl/badge.svg?branch=master
 [codecov-url]: https://coveralls.io/github/aleant93/SimpleTwitterAnalyzer.jl?branch=master
 
+##Description
+Need a quick Julia-based solution to analyze your tweet? This tool may be the answer your looking for!
+
+This tool - based on the Python library [tweets_analyzer.py](https://github.com/x0rz/tweets_analyzer/blob/master/tweets_analyzer.py) - allows you to:
+1. run some basic statistics on the tweets you provide, such as find the most used hashtags and the language distribution of your data set;
+2. save your stats in a csv format;
+3. plot and save your stats.
+
+###TODOs
+- Improving the plotting of some stats
+- Handle in a better way the source field
+- Adding a crawling component able to download tweets directly from Twitter

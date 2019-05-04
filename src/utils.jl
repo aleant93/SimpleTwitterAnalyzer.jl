@@ -10,6 +10,10 @@ function runallstats(df::AbstractDataFrame)
     toreturn[:mentions] = entities[:mentions]
     toreturn[:domains] = entities[:domains]
 
+    activities_df = cntactivities(df)
+    toreturn[:weekly_activity] = activities_df[:weekly_activity]
+    toreturn[:hourly_activity] = activities_df[:hourly_activity]
+
     toreturn
 end
 

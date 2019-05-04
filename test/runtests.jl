@@ -47,8 +47,22 @@ tweets_df = loadtweets(path)
 		:cnt => [2, 1, 1])
 	@test first(sort!(hashtags_df, :cnt, rev=true), 3) == test_hashtagsdf
 
-	test_domainsdf = DataFrame(:domains => [], :cnt => [])
+	test_domainsdf = DataFrame(:domains => ["test1.com", "test.com"], :cnt => [2, 1])
 	@test first(sort!(domains_df, :cnt, rev=true), 3) == test_domainsdf
 
 	#activity distribution
+	activities_df = cntactivities(tweets_df)
+	weekly_df = activities_df[:weekly_activity]
+	hourly_df = activities_df[:hourly_activity]
+
+	test_weeklydf = DataFrame(:weekday=>range(1,stop=7), :cnt=>0)
+	test_weeklydf[2, :] = 2
+	test_weeklydf[1, :] = 11
+	@test sort!(weekly_df, :cnt, rev=true).cnt == sort!(test_weeklydf, :cnt, rev=true).cnt
+
+	test_hourlydf = DataFrame(:hour=>range(1,stop=24), :cnt=>0)
+	test_hourlydf[14, :] = 11
+	test_hourlydf[17, :] = 1
+	test_hourlydf[18, :] = 1
+	@test sort!(hourly_df, :cnt, rev=true).cnt == sort!(test_hourlydf, :cnt, rev=true).cnt
 end;

@@ -31,7 +31,7 @@ function cntentities(df::AbstractDataFrame)
     mentions_df = DataFrame(:mentions => collect(keys(mentions)), :cnt => collect(values(mentions)))
     domains_df = DataFrame(:domains => collect(keys(domains)), :cnt => collect(values(domains)))
 
-    Dict{Symbol, DataFrame}(:hashtags => hashtags_df,
+    Dict{Symbol, AbstractDataFrame}(:hashtags => hashtags_df,
         :mentions => mentions_df,
         :domains => domains_df)
 end
@@ -66,30 +66,28 @@ function collectmetadata!(row::AbstractDict, hashtags::AbstractDict,
     end
 end
 
-
 """
+    cntactivities(df::AbstractDataFrame)
 
+Count the number of tweets per week and per hour in the dataframe `df`.
+Store the computed frequencies into two different dataframes.
+Return a dict where each entry is associated with the corresponding frequency dataframe.
 """
-function activityfrequency(df::AbstractDataFrame)
+function cntactivities(df::AbstractDataFrame)
     activity_weekly = Dict{Int, Int}(i => 0 for i = 1:7)
     activity_hourly = Dict{Int, Int}(i => 0 for i = 0:23)
-    #mindate, maxdate
 
     map(r -> collecttiming!(r.created_at, activity_weekly, activity_hourly), eachrow(df))
-    #mydate = Dates.parse(DateTime, df.created_at[1], dateformat"e u d H:M:S +s Y")
-
-    # println(activity_weekly)
-    # println(activity_hourly)
 
     weekly_df = DataFrame(:weekday => collect((keys(activity_weekly))), :cnt => collect(values(activity_weekly)))
     hourly_df = DataFrame(:hour => collect((keys(activity_hourly))), :cnt => collect(values(activity_hourly)))
 
-    weekly_df, hourly_df
+    Dict{Symbol, AbstractDataFrame}(
+        :weekly_activity => weekly_df,
+        :hourly_activity => hourly_df
+    )
 end
 
-"""
-
-"""
 function collecttiming!(date::AbstractString, activity_weekly::AbstractDict, activity_hourly::AbstractDict)
     tweetdate = Dates.parse(DateTime, date, dateformat"e u d H:M:S +s Y")
 

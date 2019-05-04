@@ -1,3 +1,6 @@
+"""
+A simple tool to analyzer Twitter data.
+"""
 module SimpleTwitterAnalyzer
 
 using CSV
@@ -9,7 +12,7 @@ using DataFrames
 using URIParser
 
 export loadtweets
-export cntoccurences, cntentities, cntplaces, activityfrequency
+export cntoccurences, cntentities, cntplaces, cntactivities
 export plotdata
 export runallstats, savestats, plotstats
 

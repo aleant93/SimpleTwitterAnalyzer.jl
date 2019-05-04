@@ -7,7 +7,7 @@ function plotdata(df::AbstractDataFrame, x::Symbol, y::Symbol;
     clf()
     title(ptitle)
 
-    xlabel(xlabels, labelpad=35)
+    xlabel(xlabels, labelpad=25)
     ylabel(ylabels, labelpad = 35)
     xticks(rotation=45)
 
