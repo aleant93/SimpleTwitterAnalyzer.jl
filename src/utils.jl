@@ -33,8 +33,16 @@ function plotstats(stats::AbstractDict, destpath::AbstractString)
         if stats[feature] isa AbstractDataFrame
             destfile = string(output_path, string(Base.Filesystem.path_separator, String(feature),".png"))
             colnames = names(stats[feature])
+            x_ticks = []
+
+            if colnames[1] == :weekday
+                x_ticks = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+            end
+
             plotdata(stats[feature], colnames[1], colnames[2];
-                ptitle=string(colnames[1], " distribution"), x_label=string(colnames[1]))
+                ptitle=string(colnames[1], " distribution"),
+                x_label=string(colnames[1]),
+                x_ticks=x_ticks)
             savefig(destfile)
         end
     end

@@ -5,14 +5,14 @@ function plotdata(df::AbstractDataFrame, x::Symbol, y::Symbol;
         x_ticks::AbstractArray=[])
     sorted_df = sort(df, y, rev=false)
 
-    PyPlot.plt.tight_layout()
+    #PyPlot.plt.tight_layout()
 
     clf()
     title(ptitle)
 
     xticks(rotation=45)
     if !isempty(x_ticks)
-        xticks(x_ticks, rotation=45)
+        xticks(sorted_df[x], x_ticks, rotation=45)
     end
 
     xlabel(x_label, labelpad=25)
