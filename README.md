@@ -18,7 +18,7 @@
 [travis-img]: https://travis-ci.org/aleant93/SimpleTwitterAnalyzer.jl.svg?branch=master
 [travis-url]: https://travis-ci.org/aleant93/SimpleTwitterAnalyzer.jl
 
-[codecov-img]: https://coveralls.io/repos/github/aleant93/SimpleTwitterAnalyzer.jl/badge.svg?branch=master
+[codecov-img]: https://coveralls.io/repos/github/aleant93/SimpleTwitterAnalyzer.jl/badge.svg?branch=master&service=github
 [codecov-url]: https://coveralls.io/github/aleant93/SimpleTwitterAnalyzer.jl?branch=master
 
 ##Description
