@@ -1,7 +1,12 @@
-#save all stats
-function savestats(df:AbstractDataFrame, destpath::AbstractString)
+#run all stats
+function runallstats(df:AbstractDataFrame)
 
 end
 
+function savestats(stast::AbstractDict, destpath::AbstractString)
 
-#plot all stats and save
+end
+
+function plotstats(stast::AbstractDict, destpath::AbstractString)
+
+end

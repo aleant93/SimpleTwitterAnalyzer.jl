@@ -7,7 +7,7 @@ using DataFrames
 using URIParser
 
 export loadtweets
-export cntoccurences, cntentities, activityfrequency, cntplaces
+export cntoccurences, cntentities, cntplaces, activityfrequency
 export plotdata
 
 include("io.jl")

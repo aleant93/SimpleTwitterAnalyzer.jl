@@ -8,6 +8,13 @@ DocTestSetup = quote
 end
 ```
 
+Analyzer
+---
+```@docs
+cntoccurences
+cntentities
+```
+
 I/O
 ---
 ```@docs

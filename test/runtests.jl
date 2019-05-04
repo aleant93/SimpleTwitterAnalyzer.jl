@@ -25,15 +25,30 @@ using SimpleTwitterAnalyzer
 	@test test_df.is_quoted_status == loaded_df.is_quote_status
 end;
 
-# path = "testdata/test.json"
-# tweetsdf = loadtweets(path)
+path = "testdata/test.json"
+tweets_df = loadtweets(path)
 
-# @testset "Analyses" begin
-# 	#lang distribution
-# 	testdf = DataFrame(:lang => ["pt", "en", "es"], :cnt => [3, 9, 1])
-# 	@test cntoccurences(tweetsdf, :lang) == testdf
-#
-# 	#source distribution
-# 	#testdf = DataFrame(:source => ["<a href="http://twitter.com/download/iphone" rel="nofollow">Twitter for iPhone</a>"])
-# 	#@test_throws DomainError (-1)^0.5
-# end;
+@testset "Analyses" begin
+	#lang distribution
+	test_df = DataFrame(:lang => ["pt", "en", "es"], :cnt => [3, 9, 1])
+	@test cntoccurences(tweets_df, :lang) == test_df
+
+	#entities distribution
+	entities_df = cntentities(tweets_df)
+	hashtags_df = entities_df[:hashtags]
+	mentions_df = entities_df[:mentions]
+	domains_df = entities_df[:domains]
+
+	test_hashtagsdf = DataFrame(:hashtags => ["gameofthrones", "nottoday", "aryaforthethrone"],
+		:cnt => [5, 2, 1])
+	@test first(sort!(hashtags_df, :cnt, rev=true), 3) == test_hashtagsdf
+
+	test_mentionsdf = DataFrame(:mentions => ["oyin_araoye", "OtraPendeja", "thehippienikki"],
+		:cnt => [2, 1, 1])
+	@test first(sort!(hashtags_df, :cnt, rev=true), 3) == test_hashtagsdf
+
+	test_domainsdf = DataFrame(:domains => [], :cnt => [])
+	@test first(sort!(domains_df, :cnt, rev=true), 3) == test_domainsdf
+
+	#activity distribution
+end;

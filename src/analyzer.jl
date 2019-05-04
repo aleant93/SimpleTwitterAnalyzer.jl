@@ -1,22 +1,24 @@
 """
     cntoccurences(df::AbstractDataFrame, col)
 
- Count the occurences of different values
- of the column `col` of the dataframe `df`.
- Return a new dataframe with a column `col`
- representing the instance and a column `cnt`
- indicating its occurences.
+Count the occurences of different values of the column `col` in the dataframe `df`.
+Return a new dataframe with a column `col` representing an instance
+and a column `cnt` indicating its occurences.
 
-  Suitable for :lang and :source tweet attributes.
+Suitable for :lang and :source tweet attributes.
 """
-function cntoccurences(df::AbstractDataFrame, col, skipmissing=false)
+function cntoccurences(df::AbstractDataFrame, col::Symbol, skipmissing=false)
     newdf = by(df[[col]], col, nrow)
     rename!(newdf, :x1 => :cnt)
     newdf
 end
 
 """
+    cntentities(df::AbstractDataFrame)
 
+Count the occurences of hashtags, mentions and domains in the dataframe `df`
+and store the computed frequencies into three different dataframes.
+Return a dict where each entry is associated with the corresponding frequency dataframe.
 """
 function cntentities(df::AbstractDataFrame)
     hashtags = Dict{String, Int}()
@@ -29,7 +31,9 @@ function cntentities(df::AbstractDataFrame)
     mentions_df = DataFrame(:mentions => collect(keys(mentions)), :cnt => collect(values(mentions)))
     domains_df = DataFrame(:domains => collect(keys(domains)), :cnt => collect(values(domains)))
 
-    hashtags_df, mentions_df, domains_df
+    Dict{Symbol, DataFrame}(:hashtags => hashtags_df,
+        :mentions => mentions_df,
+        :domains => domains_df)
 end
 
 function collectmetadata!(row::AbstractDict, hashtags::AbstractDict,
