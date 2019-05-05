@@ -27,7 +27,10 @@ using SimpleTwitterAnalyzer
 end;
 
 path = "testdata/test.json"
+destdir = "testdata/results"
 tweets_df = loadtweets(path)
+stats = runallstats(tweets_df)
+savestats(stats, destdir)
 
 @testset "Analyses" begin
 	#lang distribution
@@ -76,6 +79,6 @@ end;
 # 	savefig(destpath)
 # end;
 
-@testset "utils" begin
-	@btime	stats = runallstats(tweets_df)
-end;
+# @testset "utils" begin
+# 	@btime	stats = runallstats(tweets_df)
+# end;
