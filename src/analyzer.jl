@@ -94,15 +94,3 @@ function collecttiming!(date::AbstractString, activity_weekly::AbstractDict, act
     activity_weekly[Dates.dayofweek(tweetdate)] = activity_weekly[Dates.dayofweek(tweetdate)] + 1
     activity_hourly[Dates.hour(tweetdate)] = activity_hourly[Dates.hour(tweetdate)] + 1
 end
-
-
-"""
-
-"""
-function cntplaces(df::AbstractDataFrame)
-    places = Dict{String, Int}()
-
-    for row in eachrow(df)
-        println(row)
-    end
-end

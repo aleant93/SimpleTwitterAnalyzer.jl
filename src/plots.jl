@@ -1,5 +1,5 @@
 function plotdata(df::AbstractDataFrame, x::Symbol, y::Symbol;
-        ptitle::AbstractString="",
+        ptitle::AbstractString="A title",
         x_label::AbstractString="",
         y_label::AbstractString="Number of instances",
         x_ticks::AbstractArray=[])
