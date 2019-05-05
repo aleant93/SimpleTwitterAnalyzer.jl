@@ -32,13 +32,6 @@ tweets_df = loadtweets(path)
 stats = runallstats(tweets_df)
 savestats(stats, destdir)
 
-#plotting
-lang_df = cntoccurences(tweets_df, :lang)
-plotdata(lang_df, :lang, :cnt; ptitle="Lang distribution", x_label="Languages")
-destpath = string(pwd(), Base.Filesystem.path_separator,
-	"testdata", Base.Filesystem.path_separator, "lang.png")
-savefig(destpath)
-
 @testset "Analyses" begin
 	#lang distribution
 	test_df = DataFrame(:lang => ["pt", "en", "es"], :cnt => [3, 9, 1])
