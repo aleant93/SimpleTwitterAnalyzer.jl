@@ -40,7 +40,8 @@ function plotstats(stats::AbstractDict, destpath::AbstractString)
             end
 
             if colnames[1] == :hour
-                x_ticks = ["$x:00" for x in range(0, stop=23)]
+                x_ticks = [replace("$(@sprintf("%2d",x)):00", " " => "0")
+                    for x in range(0, stop=23)]
             end
 
             plotdata(stats[feature], colnames[1], colnames[2];

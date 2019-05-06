@@ -3,8 +3,7 @@ function plotdata(df::AbstractDataFrame, x::Symbol, y::Symbol;
         x_label::AbstractString="",
         y_label::AbstractString="Number of instances",
         x_ticks::AbstractArray=[])
-    sorted_df = sort(df, y, rev=false)
-
+    sorted_df = sort(df, x)
     #PyPlot.plt.tight_layout()
 
     clf()

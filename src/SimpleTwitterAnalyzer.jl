@@ -7,6 +7,7 @@ using CSV
 using JSON
 using Dates
 using PyPlot
+using Printf
 using CSVFiles
 using DataFrames
 using URIParser
